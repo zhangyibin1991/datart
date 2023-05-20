@@ -160,15 +160,24 @@ public class CustomPropertiesValidate implements EnvironmentPostProcessor {
 
     private String getDefaultDBUrl(ConfigurableEnvironment environment) {
         List<String> activeProfiles = Arrays.asList(environment.getActiveProfiles());
-        if (activeProfiles.size() > 0 && !Arrays.asList("demo", "config").containsAll(activeProfiles)) {
+        if (activeProfiles.size() > 0
+                && !Arrays.asList("demo", "config").containsAll(activeProfiles)) {
             // running other profiles
             return "";
         }
+
+        // Load property source.
         try {
-            List<PropertySource<?>> propertySources = new YamlPropertySourceLoader().load(DEFAULT_APPLICATION_CONFIG, new FileSystemResource(DEFAULT_APPLICATION_CONFIG));
+            List<PropertySource<?>> propertySources = new YamlPropertySourceLoader()
+                    .load(DEFAULT_APPLICATION_CONFIG, new FileSystemResource(DEFAULT_APPLICATION_CONFIG));
             if (CollectionUtils.isEmpty(propertySources)) {
                 System.err.println("Default config application-config not found ");
                 return null;
+            }
+
+            // Add property source into environment.
+            for (PropertySource<?> propertySource : propertySources) {
+                environment.getPropertySources().addFirst(propertySource);
             }
             return environment.getProperty(DATABASE_URL);
         } catch (Exception e) {

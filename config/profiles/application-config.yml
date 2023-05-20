@@ -70,8 +70,8 @@ spring:
 
 
 server:
-  port: ${server.port:8080}
-  address: ${server.ip:0.0.0.0}
+  port: ${server.bind-port:8080}
+  address: ${server.bind-address:0.0.0.0}
   ssl:
     enabled: false
     key-store: keystore.p12 # Absolute path
