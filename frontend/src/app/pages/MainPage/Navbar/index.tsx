@@ -29,10 +29,10 @@ import {
   SkinOutlined,
   UserOutlined,
 } from '@ant-design/icons';
-import { List, Menu, Tooltip } from 'antd';
+import {List, Menu, Tooltip} from 'antd';
 import logo from 'app/assets/images/logo.svg';
-import { Avatar, MenuListItem, Popup } from 'app/components';
-import { TenantManagementMode } from 'app/constants';
+import {Avatar, MenuListItem, Popup} from 'app/components';
+import {TenantManagementMode} from 'app/constants';
 import useI18NPrefix from 'app/hooks/useI18NPrefix';
 import {
   selectCurrentOrganization,
@@ -40,16 +40,16 @@ import {
   selectOrganizationListLoading,
   selectOrgId,
 } from 'app/pages/MainPage/slice/selectors';
-import { getOrganizations } from 'app/pages/MainPage/slice/thunks';
-import { selectLoggedInUser, selectSystemInfo } from 'app/slice/selectors';
-import { logout } from 'app/slice/thunks';
-import { downloadFile } from 'app/utils/fetch';
-import { BASE_RESOURCE_URL } from 'globalConstants';
-import { changeLang, getLang } from 'locales/i18n';
-import { cloneElement, useCallback, useMemo, useState } from 'react';
-import { useTranslation } from 'react-i18next';
-import { useDispatch, useSelector } from 'react-redux';
-import { NavLink, useHistory, useRouteMatch } from 'react-router-dom';
+import {getOrganizations} from 'app/pages/MainPage/slice/thunks';
+import {selectLoggedInUser, selectSystemInfo} from 'app/slice/selectors';
+import {logout} from 'app/slice/thunks';
+import {downloadFile} from 'app/utils/fetch';
+import {BASE_RESOURCE_URL} from 'globalConstants';
+import {changeLang, getLang} from 'locales/i18n';
+import {cloneElement, useCallback, useMemo, useState} from 'react';
+import {useTranslation} from 'react-i18next';
+import {useDispatch, useSelector} from 'react-redux';
+import {NavLink, useHistory, useRouteMatch} from 'react-router-dom';
 import styled from 'styled-components/macro';
 import {
   BLACK,
@@ -64,20 +64,17 @@ import {
   WHITE,
 } from 'styles/StyleConstants';
 import themeSlice from 'styles/theme/slice';
-import { selectThemeKey } from 'styles/theme/slice/selectors';
-import { ThemeKeyType } from 'styles/theme/slice/types';
-import { changeAntdTheme, saveTheme } from 'styles/theme/utils';
-import { Access } from '../Access';
-import {
-  PermissionLevels,
-  ResourceTypes,
-} from '../pages/PermissionPage/constants';
-import { useMainSlice } from '../slice';
-import { DownloadListPopup } from './DownloadListPopup';
-import { ModifyPassword } from './ModifyPassword';
-import { OrganizationList } from './OrganizationList';
-import { Profile } from './Profile';
-import { loadTasks } from './service';
+import {selectThemeKey} from 'styles/theme/slice/selectors';
+import {ThemeKeyType} from 'styles/theme/slice/types';
+import {changeAntdTheme, saveTheme} from 'styles/theme/utils';
+import {Access} from '../Access';
+import {PermissionLevels, ResourceTypes,} from '../pages/PermissionPage/constants';
+import {useMainSlice} from '../slice';
+import {DownloadListPopup} from './DownloadListPopup';
+import {ModifyPassword} from './ModifyPassword';
+import {OrganizationList} from './OrganizationList';
+import {Profile} from './Profile';
+import {loadTasks} from './service';
 
 export function Navbar() {
   const { actions } = useMainSlice();
@@ -143,6 +140,7 @@ export function Navbar() {
     [t],
   );
 
+  // NVA.
   const navs = useMemo(
     () => [
       {
@@ -150,6 +148,12 @@ export function Navbar() {
         title: t('nav.vizs'),
         icon: <i className="iconfont icon-xietongzhihuidaping" />,
         module: ResourceTypes.Viz,
+      },
+      {
+        name: 'jobs',
+        title: t('nav.jobs'),
+        icon: <i className="iconfont icon-nav-tasks" />,
+        module: ResourceTypes.View,
       },
       {
         name: 'views',

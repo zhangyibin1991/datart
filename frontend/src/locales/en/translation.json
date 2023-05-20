@@ -143,6 +143,7 @@
     "nav": {
       "vizs": "Vizs",
       "views": "Views",
+      "jobs": "Jobs",
       "sources": "Sources",
       "schedules": "Schedules",
       "members": "Members",
@@ -1738,5 +1739,10 @@
       "searchValue": "Search keywords",
       "haveCharts": "The chart already exists in the dashboard and cannot be added repeatedly"
     }
+  },
+  "tasks": {
+    "tasks": "Tasks",
+    "logs" : "Logs",
+    "clusters": "Clusters"
   }
 }

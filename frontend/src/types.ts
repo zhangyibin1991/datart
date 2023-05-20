@@ -1,19 +1,20 @@
-import { WorkbenchState } from 'app/pages/ChartWorkbenchPage/slice/types';
-import { BoardState } from 'app/pages/DashBoardPage/pages/Board/slice/types';
-import { EditBoardState } from 'app/pages/DashBoardPage/pages/BoardEditor/slice/types';
-import { MemberState } from 'app/pages/MainPage/pages/MemberPage/slice/types';
-import { PermissionState } from 'app/pages/MainPage/pages/PermissionPage/slice/types';
-import { ScheduleState } from 'app/pages/MainPage/pages/SchedulePage/slice/types';
-import { SourceState } from 'app/pages/MainPage/pages/SourcePage/slice/types';
-import { VariableState } from 'app/pages/MainPage/pages/VariablePage/slice/types';
-import { ViewState } from 'app/pages/MainPage/pages/ViewPage/slice/types';
-import { VizState } from 'app/pages/MainPage/pages/VizPage/slice/types';
-import { MainState } from 'app/pages/MainPage/slice/types';
-import { SharePageState } from 'app/pages/SharePage/slice/types';
-import { StoryBoardState } from 'app/pages/StoryBoardPage/slice/types';
-import { AppState } from 'app/slice/types';
-import { CSSProp } from 'styled-components';
-import { ThemeState } from 'styles/theme/slice/types';
+import {WorkbenchState} from 'app/pages/ChartWorkbenchPage/slice/types';
+import {BoardState} from 'app/pages/DashBoardPage/pages/Board/slice/types';
+import {EditBoardState} from 'app/pages/DashBoardPage/pages/BoardEditor/slice/types';
+import {MemberState} from 'app/pages/MainPage/pages/MemberPage/slice/types';
+import {PermissionState} from 'app/pages/MainPage/pages/PermissionPage/slice/types';
+import {ScheduleState} from 'app/pages/MainPage/pages/SchedulePage/slice/types';
+import {SourceState} from 'app/pages/MainPage/pages/SourcePage/slice/types';
+import {VariableState} from 'app/pages/MainPage/pages/VariablePage/slice/types';
+import {ViewState} from 'app/pages/MainPage/pages/ViewPage/slice/types';
+import {VizState} from 'app/pages/MainPage/pages/VizPage/slice/types';
+import {MainState} from 'app/pages/MainPage/slice/types';
+import {SharePageState} from 'app/pages/SharePage/slice/types';
+import {StoryBoardState} from 'app/pages/StoryBoardPage/slice/types';
+import {AppState} from 'app/slice/types';
+import {CSSProp} from 'styled-components';
+import {ThemeState} from 'styles/theme/slice/types';
+import {JobState} from "app/pages/MainPage/pages/JobPage/slice/types";
 
 declare module 'react' {
   interface DOMAttributes<T> {
@@ -37,6 +38,7 @@ export interface RootState {
   editBoard?: EditBoardState;
   workbench?: WorkbenchState;
   share?: SharePageState;
+  job?: JobState;
 }
 export interface APIResponse<T> {
   success: boolean;

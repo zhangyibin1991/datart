@@ -31,6 +31,7 @@ export enum ResourceTypes {
   Role = 'ROLE',
   User = 'USER',
   Manager = 'MANAGER',
+  Job = 'JOB'
 }
 
 export enum VizResourceSubTypes {

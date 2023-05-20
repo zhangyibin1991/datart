@@ -16,48 +16,40 @@
  * limitations under the License.
  */
 
-import ChartEditor, { ChartEditorBaseProps } from 'app/components/ChartEditor';
+import ChartEditor, {ChartEditorBaseProps} from 'app/components/ChartEditor';
 import useMount from 'app/hooks/useMount';
 import ChartManager from 'app/models/ChartManager';
-import { useAppSlice } from 'app/slice';
-import React, { useCallback, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import {
-  Redirect,
-  Route,
-  Switch,
-  useHistory,
-  useRouteMatch,
-} from 'react-router';
+import {useAppSlice} from 'app/slice';
+import React, {useCallback, useEffect} from 'react';
+import {useDispatch, useSelector} from 'react-redux';
+import {Redirect, Route, Switch, useHistory, useRouteMatch,} from 'react-router';
 import styled from 'styled-components/macro';
-import { NotFoundPage } from '../NotFoundPage';
-import { StoryEditor } from '../StoryBoardPage/Editor';
-import { StoryPlayer } from '../StoryBoardPage/Player';
-import { AccessRoute } from './AccessRoute';
-import { Background } from './Background';
-import { Navbar } from './Navbar';
-import { ConfirmInvitePage } from './pages/ConfirmInvitePage';
-import { MemberPage } from './pages/MemberPage';
-import { OrgSettingPage } from './pages/OrgSettingPage';
-import { PermissionPage } from './pages/PermissionPage';
-import { ResourceTypes } from './pages/PermissionPage/constants';
-import { ResourceMigrationPage } from './pages/ResourceMigrationPage';
-import { SchedulePage } from './pages/SchedulePage';
-import { SourcePage } from './pages/SourcePage';
-import { VariablePage } from './pages/VariablePage';
-import { ViewPage } from './pages/ViewPage';
-import { useViewSlice } from './pages/ViewPage/slice';
-import { VizPage } from './pages/VizPage';
-import { useVizSlice } from './pages/VizPage/slice';
-import { initChartPreviewData } from './pages/VizPage/slice/thunks';
-import { useMainSlice } from './slice';
-import { selectOrgId } from './slice/selectors';
-import {
-  getDataProviders,
-  getLoggedInUserPermissions,
-  getUserSettings,
-} from './slice/thunks';
-import { MainPageRouteParams } from './types';
+import {NotFoundPage} from '../NotFoundPage';
+import {StoryEditor} from '../StoryBoardPage/Editor';
+import {StoryPlayer} from '../StoryBoardPage/Player';
+import {AccessRoute} from './AccessRoute';
+import {Background} from './Background';
+import {Navbar} from './Navbar';
+import {ConfirmInvitePage} from './pages/ConfirmInvitePage';
+import {MemberPage} from './pages/MemberPage';
+import {OrgSettingPage} from './pages/OrgSettingPage';
+import {PermissionPage} from './pages/PermissionPage';
+import {ResourceTypes} from './pages/PermissionPage/constants';
+import {ResourceMigrationPage} from './pages/ResourceMigrationPage';
+import {SchedulePage} from './pages/SchedulePage';
+import {SourcePage} from './pages/SourcePage';
+import {VariablePage} from './pages/VariablePage';
+import {ViewPage} from './pages/ViewPage';
+import {useViewSlice} from './pages/ViewPage/slice';
+import {VizPage} from './pages/VizPage';
+import {JobPage} from "./pages/JobPage";
+import {useVizSlice} from './pages/VizPage/slice';
+import {initChartPreviewData} from './pages/VizPage/slice/thunks';
+import {useMainSlice} from './slice';
+import {selectOrgId} from './slice/selectors';
+
+import {getDataProviders, getLoggedInUserPermissions, getUserSettings,} from './slice/thunks';
+import {MainPageRouteParams} from './types';
 
 export function MainPage() {
   useAppSlice();
@@ -174,9 +166,33 @@ export function MainPage() {
             )}
           />
           <Route
+            path="/organizations/:orgId/jobs"
+            render={() => (
+              <AccessRoute module={ResourceTypes.Job}>
+                <JobPage />
+              </AccessRoute>
+            )}
+          />
+          <Route
+            path="/organizations/:orgId/jobs/{jobId}/log"
+            render={() => (
+              <AccessRoute module={ResourceTypes.Job}>
+                <JobPage/>
+              </AccessRoute>
+            )}
+          />
+          <Route
+            path="/organizations/:orgId/clusters"
+            render={() => (
+              <AccessRoute module={ResourceTypes.Job}>
+                <JobPage/>
+              </AccessRoute>
+            )}
+          />
+          <Route
             path="/organizations/:orgId/sources"
             render={() => (
-              <AccessRoute module={ResourceTypes.Source}>
+              <AccessRoute module={ResourceTypes.View}>
                 <SourcePage />
               </AccessRoute>
             )}

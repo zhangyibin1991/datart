@@ -142,6 +142,7 @@
   "main": {
     "nav": {
       "vizs": "可视化",
+      "jobs": "作业",
       "views": "数据视图",
       "sources": "数据源",
       "schedules": "定时任务",
@@ -1737,5 +1738,10 @@
       "searchValue": "搜索名称关键字",
       "haveCharts": "仪表板中已有该图表，不能重复添加"
     }
+  },
+  "tasks": {
+    "tasks": "实时任务",
+    "logs" : "任务日志",
+    "clusters": "集群配置"
   }
 }

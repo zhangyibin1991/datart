@@ -329,3 +329,7 @@
 .icon-users1:before {
   content: '\e92e';
 }
+
+.icon-nav-tasks:before {
+  content: '\e799';
+}
