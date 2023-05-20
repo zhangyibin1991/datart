@@ -48,6 +48,10 @@
                 <include>Deployment.md</include>
             </includes>
         </fileSet>
+        <fileSet>
+            <directory>${project.parent.basedir}/lib</directory>
+            <outputDirectory>lib</outputDirectory>
+        </fileSet>
     </fileSets>
     <dependencySets>
         <dependencySet>
